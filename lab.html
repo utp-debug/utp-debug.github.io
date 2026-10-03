@@ -6,14 +6,14 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Пересборка позиции: стратегия позиционирования – Занимаю позицию</title>
-<link rel="canonical" href="https://utp-debug.github.io/strateg.html">
-<meta name="description" content="Пересборка позиции – стратегия позиционирования с нуля: анализ аудитории, скрытых запросов, пути клиента и новая позиция. Сначала бесплатный бриф.">
+<title>Лаборатория – Занимаю позицию</title>
+<link rel="canonical" href="https://utp-debug.github.io/lab.html">
+<meta name="description" content="Лаборатория «Занимаю позицию» – место для тех, кто хочет разбираться в позиционировании глубже и регулярно. Готовится к запуску.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Пересборка позиции – Занимаю позицию">
-<meta property="og:description" content="Полный анализ и новая позиция. Стоимость – после бесплатного брифа.">
+<meta property="og:title" content="Лаборатория – Занимаю позицию">
+<meta property="og:description" content="Готовится к запуску. Следить – в канале @utp_debug.">
 <meta property="og:image" content="https://utp-debug.github.io/og.png">
-<meta property="og:url" content="https://utp-debug.github.io/strateg.html">
+<meta property="og:url" content="https://utp-debug.github.io/lab.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -258,23 +258,15 @@
 
 <main>
   <section class="wrap page">
-    <div class="eyebrow">// пересборка позиции · стратегия позиционирования</div>
-    <h1>Обсудить задачу</h1>
-    <p class="lede">Полный анализ и новая позиция – то, что чеклистом не сделать. <b>Цену вслепую не назвать:</b> она зависит от объёма. Поэтому сначала бриф, потом предложение.</p>
-
-    <div class="formwide">
-      <p class="trust-note">Это сообщение в Telegram, <b>не оплата и не обязательство</b>. Изучу ответы и вернусь с предложением и стоимостью в течение 1–2 дней.</p>
-      <div class="formcard">
-        <h3>Что я спрошу на брифе</h3>
-        <p class="sm">Ответьте коротко – остальное уточню в переписке. Бриф бесплатный.</p>
-        
-        <div class="field">
-          <label for="tpl">Шаблон сообщения – можно дописать прямо здесь</label>
-          <textarea id="tpl" rows="9" style="min-height:230px"></textarea>
-        </div>
-        <button class="btn" type="button" id="send-tg" style="width:100%;justify-content:center;padding:13px">Скопировать и написать в Telegram</button>
-        <p class="mono" id="copied" style="display:none;color:var(--teal);font-size:12.5px;margin-top:10px;text-align:center">// текст скопирован – вставьте его в сообщение каналу</p>
-        <p class="sm" style="margin:16px 0 0;text-align:center">Удобнее почтой? <a id="send-mail" href="mailto:utp-debug@yandex.ru" style="color:var(--teal)">utp-debug@yandex.ru</a></p>
+    <div class="eyebrow">// лаборатория · в разработке</div>
+    <h1>Лаборатория</h1>
+    <p class="lede">Скоро здесь появится место для тех, кто хочет разбираться в позиционировании глубже и регулярно: учиться, прогонять свои формулировки по протоколу и видеть, как это делают другие.</p>
+    <p class="lede" style="margin-top:14px">Это будет не курс. Это рабочее место. <b>Пока готовлю.</b></p>
+    <div class="formwide" style="margin-left:0;max-width:560px">
+      <div class="formcard" style="text-align:left">
+        <p class="mono" style="color:var(--teal);font-size:12.5px;margin-bottom:10px">// статус: собирается</p>
+        <p class="sm" style="margin-bottom:18px">Первыми о запуске узнают в канале. Там же – разборы, из которых лаборатория вырастает.</p>
+        <a class="btn" href="https://t.me/utp_debug" target="_blank" rel="noopener">Следить в канале</a>
       </div>
     </div>
   </section>
@@ -300,42 +292,6 @@
   <div class="wrap"><div class="copy mono" id="year">© Занимаю позицию</div></div>
 </footer>
 
-<script>
-  window.GOAL_NAME='brief_request'; window.MAIL_SUBJ='Пересборка позиции';
-  window.buildTpl=function(){
-    return 'Здравствуйте. Хочу обсудить пересборку позиции.\n\n'
-      +'1. Чем занимаемся (продукт, ниша, средний чек):\n\n'
-      +'2. Кто клиенты и с какой задачей приходят:\n\n'
-      +'3. В чём наша сила:\n\n'
-      +'4. Как описываем себя сейчас (УТП, ссылки):\n\n'
-      +'5. Что не так сейчас и какого результата хотим:\n\n'
-      +'6. Ориентир по бюджету (если есть):\n';
-  };
-</script>
-<script>
-  document.getElementById('year').textContent='© '+new Date().getFullYear()+' · Занимаю позицию';
-  (function(){
-    var CH='utp_debug', EMAIL='utp-debug@yandex.ru';
-    var tpl=document.getElementById('tpl'), sel=document.getElementById('variant');
-    function fill(){ tpl.value = window.buildTpl(sel ? sel.value : ''); }
-    var v=new URLSearchParams(location.search).get('v');
-    if(sel && v) sel.value = (v==='discount'?'discount':'standard');
-    fill(); if(sel) sel.addEventListener('change',fill);
-    function copy(t){
-      if(navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).catch(function(){});
-      tpl.select(); try{document.execCommand('copy')}catch(e){} return Promise.resolve();
-    }
-    document.getElementById('send-tg').addEventListener('click',function(){
-      copy(tpl.value).then(function(){ document.getElementById('copied').style.display='block'; });
-      goal(window.GOAL_NAME);
-      var w=window.open('https://t.me/'+CH+'?direct','_blank');
-      if(!w) location.href='https://t.me/'+CH+'?direct';
-    });
-    document.getElementById('send-mail').addEventListener('click',function(){
-      this.href='mailto:'+EMAIL+'?subject='+encodeURIComponent(window.MAIL_SUBJ)+'&body='+encodeURIComponent(tpl.value);
-      goal(window.GOAL_NAME+'_email');
-    });
-  })();
-</script>
+<script>document.getElementById('year').textContent='© '+new Date().getFullYear()+' · Занимаю позицию';</script>
 </body>
 </html>

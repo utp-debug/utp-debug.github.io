@@ -6,12 +6,12 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Занимаю позицию — дебаг позиционирования и УТП</title>
+<title>Занимаю позицию – дебаг позиционирования и УТП</title>
 <link rel="canonical" href="https://utp-debug.github.io/">
-<meta name="description" content="Нахожу баги в ваших формулировках и заменяю на патчи — конкретику, после которой выбирают вас. Бесплатный протокол дебаггинга + письменный аудит позиционирования.">
+<meta name="description" content="Нахожу баги в ваших формулировках и заменяю на патчи – конкретику, после которой выбирают вас. Бесплатный протокол дебаггинга + письменный аудит позиционирования.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Занимаю позицию — дебаг позиционирования и УТП">
-<meta property="og:description" content="Нахожу баги в ваших формулировках и заменяю на патчи — конкретику, после которой выбирают вас. Бесплатный протокол + аудит.">
+<meta property="og:title" content="Занимаю позицию – дебаг позиционирования и УТП">
+<meta property="og:description" content="Нахожу баги в ваших формулировках и заменяю на патчи – конкретику, после которой выбирают вас. Бесплатный протокол + аудит.">
 <meta property="og:image" content="https://utp-debug.github.io/og.png">
 <meta property="og:url" content="https://utp-debug.github.io/">
 <meta name="twitter:card" content="summary_large_image">
@@ -20,17 +20,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0E1820;--bg2:#0A1117;--panel:#16242F;--panel2:#1B2C39;
-    --line:#2A3F4E;--ink:#EEF4F8;--muted:#B4C5D0;--dim:#7E94A1;
-    --teal:#2DD4BF;--teal-br:#74ECDB;--teal-dim:#1FA899;
+    --bg:#162C44;--bg2:#12253A;--panel:#1D3653;--panel2:#22405F;
+    --line:#2E4D6E;--ink:#EEF4F8;--muted:#C3D1DF;--dim:#8DA2B8;
+    --teal:#2EC4B6;--teal-br:#6FE3D6;--teal-dim:#239C92;
     --crit:#F0606B;--err:#E6AE55;--warn:#8FB6D6;--r:14px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
     background:
-      radial-gradient(1200px 700px at 80% -10%, rgba(45,212,191,.10), transparent 55%),
-      radial-gradient(900px 600px at -10% 18%, rgba(45,212,191,.05), transparent 50%),
+      radial-gradient(1200px 700px at 80% -10%, rgba(46,196,182,.10), transparent 55%),
+      radial-gradient(900px 600px at -10% 18%, rgba(46,196,182,.05), transparent 50%),
       var(--bg);
     color:var(--ink);font-family:'Manrope',sans-serif;line-height:1.62;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
@@ -45,11 +45,11 @@
   .intro b{color:var(--ink);font-weight:600}
   .subhead{font-size:clamp(18px,2.7vw,23px);font-weight:800;letter-spacing:-.02em;margin:40px 0 6px;color:var(--ink)}
   section.wrap{padding-top:114px;padding-bottom:114px}
-  section.alt{background:linear-gradient(180deg,rgba(20,33,43,.7),rgba(20,33,43,.32));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  section.alt{background:linear-gradient(180deg,rgba(29,54,83,.7),rgba(29,54,83,.32));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   section.alt + section.wrap{padding-top:150px}
   section[id]{scroll-margin-top:74px}
 
-  header{position:sticky;top:0;z-index:50;background:rgba(14,24,32,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:50;background:rgba(22,44,68,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;max-width:880px;margin:0 auto}
   .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:16px;text-decoration:none}
   .logo svg{width:24px;height:25px;flex-shrink:0}
@@ -57,9 +57,9 @@
   .navlink{font-size:14px;color:var(--muted);text-decoration:none;font-weight:600}
   .navlink:hover{color:var(--teal)}
   .btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#06231F;font-weight:700;font-size:14px;padding:12px 19px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
-  .btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(45,212,191,.28)}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(46,196,182,.28)}
   .btn.ghost{background:transparent;color:var(--teal);border:1px solid var(--teal-dim);box-shadow:none}
-  .btn.ghost:hover{background:rgba(45,212,191,.08);box-shadow:none}
+  .btn.ghost:hover{background:rgba(46,196,182,.08);box-shadow:none}
   .nav .btn{padding:9px 15px;font-size:13px}
   @media(max-width:560px){.nav .btn{display:none}}
 
@@ -87,7 +87,7 @@
   .cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:16px}
   .demo-nav{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
   .demo-nav button{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--teal);font-size:16px;cursor:pointer;transition:border-color .15s,background .15s;line-height:1}
-  .demo-nav button:hover{border-color:var(--teal-dim);background:rgba(45,212,191,.08)}
+  .demo-nav button:hover{border-color:var(--teal-dim);background:rgba(46,196,182,.08)}
   .dots{display:flex;gap:8px}
   .dot-i{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .2s;border:none;padding:0}
   .dot-i.on{background:var(--teal)}
@@ -161,7 +161,7 @@
   .plan .price small{font-size:14px;color:var(--dim);font-weight:500}
   .plans.single{grid-template-columns:1fr;max-width:540px}
   .plan{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;position:relative}
-  .plan.feat{border-color:var(--teal-dim);box-shadow:0 0 0 1px rgba(45,212,191,.4),0 22px 55px rgba(45,212,191,.12)}
+  .plan.feat{border-color:var(--teal-dim);box-shadow:0 0 0 1px rgba(46,196,182,.4),0 22px 55px rgba(46,196,182,.12)}
   .badge{position:absolute;top:-13px;left:24px;background:var(--teal);color:#06231F;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:5px 12px;border-radius:30px}
   .plan h3{font-size:18px;font-weight:800;margin-bottom:10px}
   .price{font-size:clamp(28px,5vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1;white-space:nowrap}
@@ -174,13 +174,13 @@
   .plan ul li::before{content:"✓";color:var(--teal);font-weight:700;flex-shrink:0}
   .plan .btn{justify-content:center}
   .plan.full .btn{background:transparent;color:var(--teal);border:1px solid var(--teal-dim)}
-  .plan.full .btn:hover{background:rgba(45,212,191,.08);box-shadow:none}
+  .plan.full .btn:hover{background:rgba(46,196,182,.08);box-shadow:none}
   .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px}
   .chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:30px;padding:7px 13px}
   .chip b{color:var(--teal);font-weight:700}
   .opts{display:grid;gap:12px;margin-top:auto}
   .opt{border:1px solid var(--line);border-radius:11px;padding:14px 15px}
-  #opt-discount{position:relative;border-color:var(--teal-dim);background:rgba(45,212,191,.05);margin-top:8px}
+  #opt-discount{position:relative;border-color:var(--teal-dim);background:rgba(46,196,182,.05);margin-top:8px}
   .opt-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:5px}
   .opt-price{font-size:21px;font-weight:800;letter-spacing:-.01em;white-space:nowrap}
   .opt-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--teal);white-space:nowrap}
@@ -234,6 +234,46 @@
   .blog-item .more{color:var(--teal);text-decoration:none;font-weight:600;font-size:14px;font-family:'JetBrains Mono',monospace}
   .blog-item .more:hover{text-decoration:underline}
 
+
+  /* --- бренд: синий логотипа и протокола --- */
+  header{background:#162C44 !important;backdrop-filter:none}
+  .logo img{height:34px;width:auto;display:block}
+  @media(max-width:560px){.logo img{height:28px}}
+
+  /* --- раскладка для компьютера --- */
+  .wrap,.nav{max-width:1080px}
+  @media(min-width:1000px){
+    .hero.wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:52px;align-items:center}
+    .hero h1{font-size:46px}
+    .about>h2{margin-top:0}
+    .hero .demo{margin-top:0}
+    .bugs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .bugs .bugrow{margin:0}
+    .about{display:grid;grid-template-columns:320px 1fr;column-gap:64px;grid-auto-flow:row dense;align-items:start}
+    .about>*{grid-column:2}
+    .about>.eyebrow,.about>h2,.about>.cred,.about>.avatar{grid-column:1}
+    .about>p:first-of-type{margin-top:0}
+  }
+  /* --- пример отчёта --- */
+  .proof{border:1px solid var(--line);border-radius:var(--r);background:#F4F7FA;color:#1A2B3C;overflow:hidden;max-width:760px;margin:6px 0 10px;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+  .proof-head{display:flex;justify-content:space-between;font-size:11.5px;color:#5C7088;padding:11px 20px;border-bottom:1px solid #DCE4EC;background:#E9EFF5}
+  .proof-body{padding:22px 24px 24px;display:grid;gap:14px}
+  .proof .lbl{display:block;font-size:11.5px;color:#5C7088;margin-bottom:5px}
+  .pq{font-size:15.5px;font-style:italic;color:#24384D}
+  .pbug{display:flex;gap:12px;align-items:flex-start;font-size:14.2px;line-height:1.55;color:#33475C}
+  .pbug b{color:#14263A}
+  .pbug .sev{flex-shrink:0;margin-top:3px;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.04em;padding:3px 7px;border-radius:5px;min-width:74px;text-align:center}
+  .proof .sev.crit{color:#C2343F;background:#FBE4E6;border:1px solid #F2B8BE}
+  .proof .sev.err{color:#A86A10;background:#FCF0DC;border:1px solid #F0D29B}
+  .pscore{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;padding:12px 0;border-top:1px dashed #CBD6E1;border-bottom:1px dashed #CBD6E1}
+  .pscore div{display:grid;grid-template-columns:110px 1fr 42px;align-items:center;gap:10px;font-size:13px;color:#33475C}
+  .pscore i{height:7px;border-radius:4px;background:linear-gradient(90deg,#E8574F var(--v),#DCE4EC var(--v))}
+  .pscore b{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#14263A;text-align:right}
+  .ppatch{background:#E3F6F3;border-left:3px solid #1FA899;border-radius:6px;padding:12px 15px;font-size:15px;font-weight:600;color:#123B37}
+  .proof-note{font-size:12px;color:var(--dim);margin-bottom:34px}
+  @media(max-width:600px){.pscore{grid-template-columns:1fr}.pscore div{grid-template-columns:100px 1fr 40px}.proof-body{padding:18px}}
+  .soon{font-size:10px;letter-spacing:.06em;color:var(--teal);border:1px solid var(--teal-dim);border-radius:20px;padding:1px 7px;margin-left:4px;vertical-align:2px}
+  @media(max-width:560px){.navlinks{gap:14px}.soon{display:none}}
 </style>
 <script src="site.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Занимаю позицию", "url": "https://utp-debug.github.io/", "image": "https://utp-debug.github.io/og.png", "email": "utp-debug@yandex.ru", "areaServed": "RU", "sameAs": ["https://t.me/utp_debug"], "description": "Дебаг позиционирования и УТП по методологии «Логика смыслов»: нахожу баги в формулировках и заменяю их на патчи."}</script>
@@ -243,20 +283,21 @@
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <g id="gem">
-  <polygon points="100,176 150,123 185,74 168,39 138,28 116,46 100,61 84,46 62,28 32,39 15,74 50,123" fill="#2DD4BF" fill-opacity="0.13" stroke="none"/>
+  <polygon points="100,176 150,123 185,74 168,39 138,28 116,46 100,61 84,46 62,28 32,39 15,74 50,123" fill="#2EC4B6" fill-opacity="0.13" stroke="none"/>
   <g stroke="#45E4D2" stroke-width="5.6" fill="none" stroke-linejoin="round" stroke-linecap="round">
     <line x1="100" y1="61" x2="66" y2="78"/><line x1="100" y1="61" x2="134" y2="78"/>
     <line x1="66" y1="78" x2="134" y2="78"/><line x1="66" y1="78" x2="32" y2="39"/>
     <line x1="134" y1="78" x2="168" y2="39"/><line x1="66" y1="78" x2="100" y2="176"/>
     <line x1="134" y1="78" x2="100" y2="176"/>
   </g>
-  <polygon points="100,176 150,123 185,74 168,39 138,28 116,46 100,61 84,46 62,28 32,39 15,74 50,123" fill="none" stroke="#74ECDB" stroke-width="7.6" stroke-linejoin="round" stroke-linecap="round"/>
+  <polygon points="100,176 150,123 185,74 168,39 138,28 116,46 100,61 84,46 62,28 32,39 15,74 50,123" fill="none" stroke="#6FE3D6" stroke-width="7.6" stroke-linejoin="round" stroke-linecap="round"/>
 </g></defs></svg>
 
 <header>
   <nav class="nav">
-    <a class="logo" href="#top"><svg viewBox="0 0 200 205"><use href="#gem"/></svg> Занимаю позицию</a>
+    <a class="logo" href="#top" aria-label="Занимаю позицию – на главную"><img src="logo.png" alt="Занимаю позицию" width="113" height="34"></a>
     <div class="navlinks">
+      <a class="navlink" href="lab.html">Лаборатория <span class="soon mono">скоро</span></a>
       <a class="navlink" href="#audit">Аудит</a>
       <a class="btn" href="#protokol">Забрать протокол</a>
     </div>
@@ -266,53 +307,55 @@
 <main id="top">
 
   <section class="hero wrap">
+    <div class="hero-text">
     <div class="eyebrow">// дебаг позиционирования</div>
     <h1>Вы звучите как все.<br>Поэтому выбирают <span class="hl">не вас, а цену</span>.</h1>
-    <p class="lede">Если продукт сильный, а клиенты сравнивают вас только по цене, дело в словах. Вы получите точные места, где формулировка теряет клиента, — баги, и готовые замены к ним — патчи: с цифрой, фактом или проверяемым действием.</p>
+    <p class="lede">Если продукт сильный, а клиенты сравнивают вас только по цене, дело в словах. Вы получите точные места, где формулировка теряет клиента, – баги, и готовые замены к ним – патчи: с цифрой, фактом или проверяемым действием.</p>
     <p class="lede" style="font-size:15px;color:var(--dim);margin-top:-14px">Такие тексты я читаю со стороны заказчика: готовлю ИТ-проекты на решение руководства и веду их до приёмки.</p>
     <div class="cta-row">
       <a class="btn" href="#protokol">Забрать протокол</a>
       <a class="btn ghost" href="audit.html?v=express">Экспресс-взгляд за 2 дня</a>
     </div>
-    <div class="cta-sub">протокол — в подарок · 20 багов УТП и патч к каждому</div>
+    <div class="cta-sub">протокол – в подарок · 20 багов УТП и патч к каждому</div>
+    </div>
 
     <div class="demo">
       <div class="top"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="file mono">positioning.txt · пример <span id="ex">1</span>/5</span></div>
       <div class="viewport">
         <div class="track" id="track">
           <div class="slide">
-            <div class="lbl mono">// до — баг</div>
-            <div class="bugline">«Мы — команда профессионалов с многолетним опытом. Полный спектр услуг и комплексные решения под ключ для вашего бизнеса. Индивидуальный подход, высокое качество, кратчайшие сроки. Гибкие цены. Работаем на результат. Нам доверяют тысячи».</div>
+            <div class="lbl mono">// до – баг</div>
+            <div class="bugline">«Мы – команда профессионалов с многолетним опытом. Полный спектр услуг и комплексные решения под ключ для вашего бизнеса. Индивидуальный подход, высокое качество, кратчайшие сроки. Гибкие цены. Работаем на результат. Нам доверяют тысячи».</div>
             <div class="patch-lbl mono">// патч</div>
-            <div class="patchline">«Запускаем интернет-магазины на Tilda и Shopify для ритейла среднего сегмента. С 2019 года — 47 запусков, в 9 из 10 укладываемся в смету. Выручка в первый квартал растёт на 20–35% — цифры в документах, покажем на встрече. Не вышли на план — сопровождаем бесплатно».</div>
+            <div class="patchline">«Запускаем интернет-магазины на Tilda и Shopify для ритейла среднего сегмента. С 2019 года – 47 запусков, в 9 из 10 укладываемся в смету. Выручка в первый квартал растёт на 20–35% – цифры в документах, покажем на встрече. Не вышли на план – сопровождаем бесплатно».</div>
             <div class="cap mono">// агентство «о компании» · 11 багов закрыто</div>
           </div>
           <div class="slide">
-            <div class="lbl mono">// до — баг</div>
+            <div class="lbl mono">// до – баг</div>
             <div class="bugline">«Полный спектр услуг по интернет-маркетингу. Индивидуальный подход, высокое качество, гибкие цены».</div>
             <div class="patch-lbl mono">// патч</div>
             <div class="patchline">«Настраиваю рекламу для салонов, стоматологий и фитнес-студий. +40% заявок за первый месяц. Договор с постоплатой».</div>
             <div class="cap mono">// фрилансер-маркетолог · 7 багов закрыто</div>
           </div>
           <div class="slide">
-            <div class="lbl mono">// до — баг</div>
+            <div class="lbl mono">// до – баг</div>
             <div class="bugline">«Создаём современные и быстрые сайты для вашего бизнеса».</div>
             <div class="patch-lbl mono">// патч</div>
             <div class="patchline">«Сайты для B2B-производителей: каталог с ценами для дилеров, заявки сразу в вашу CRM. Запуск за 6 недель».</div>
             <div class="cap mono">// веб-студия · 4 бага закрыто</div>
           </div>
           <div class="slide">
-            <div class="lbl mono">// до — баг</div>
+            <div class="lbl mono">// до – баг</div>
             <div class="bugline">«Команда опытных профессионалов с многолетним опытом».</div>
             <div class="patch-lbl mono">// патч</div>
-            <div class="patchline">«Авторы с опытом в ИТ от 8 лет, четверо — с долей в продукте на 2 млн пользователей».</div>
+            <div class="patchline">«Авторы с опытом в ИТ от 8 лет, четверо – с долей в продукте на 2 млн пользователей».</div>
             <div class="cap mono">// дешёвый сигнал → дорогой · 3 бага закрыто</div>
           </div>
           <div class="slide">
-            <div class="lbl mono">// до — баг</div>
+            <div class="lbl mono">// до – баг</div>
             <div class="bugline">«Работаем быстро, качественно и в срок».</div>
             <div class="patch-lbl mono">// патч</div>
-            <div class="patchline">«Прототип за 3 рабочих дня. Доработки в течение недели после сдачи — без доплат».</div>
+            <div class="patchline">«Прототип за 3 рабочих дня. Доработки в течение недели после сдачи – без доплат».</div>
             <div class="cap mono">// прилагательные → цифры · 3 бага закрыто</div>
           </div>
         </div>
@@ -330,36 +373,26 @@
     <h2>Похоже на ваш случай?</h2>
     <p class="intro">Когда заявок мало при сильном продукте, дело почти всегда не в продукте, а в том, <b>как вы о нём говорите</b>. Вот как это проявляется:</p>
     <div class="bugs">
-      <div class="bugrow"><span class="sev crit">CRITICAL</span><p>Вы пишете «качество», «опыт», «подход» — ровно то же, что сотни конкурентов. Для клиента это белый шум: он не читает, он пролистывает.</p></div>
+      <div class="bugrow"><span class="sev crit">CRITICAL</span><p>Вы пишете «качество», «опыт», «подход» – ровно то же, что сотни конкурентов. Для клиента это белый шум: он не читает, он пролистывает.</p></div>
       <div class="bugrow"><span class="sev err">ERROR</span><p>Сделайте тест на подстановку: вставьте в своё УТП имя конкурента. Ничего не сломалось? Значит, рынок вас не различает.</p></div>
-      <div class="bugrow"><span class="sev err">ERROR</span><p>Вас сравнивают только по цене — потому что больше сравнивать не по чему. А ценовую войну выигрывает только самый дешёвый.</p></div>
-      <div class="bugrow"><span class="sev err">ERROR</span><p>Вы отвечаете на запрос «хочу сайт», а клиент внутри думает «боюсь, что сделают как на конвейере». Вы говорите не на его языке.</p></div>
-      <div class="bugrow"><span class="sev err">ERROR</span><p>Весь текст — про вас: «мы команда», «у нас опыт», «мы делаем». А клиент читает через один вопрос: «что это даст лично мне?»</p></div>
-      <div class="bugrow"><span class="sev warn">WARNING</span><p>Заявки приходят, но в ответ — «дорого» и «я подумаю». Клиент так и не увидел, за что именно платит.</p></div>
+      <div class="bugrow"><span class="sev err">ERROR</span><p>Вас сравнивают только по цене – потому что больше сравнивать не по чему. А ценовую войну выигрывает только самый дешёвый.</p></div>
+      <div class="bugrow"><span class="sev warn">WARNING</span><p>Заявки приходят, но в ответ – «дорого» и «я подумаю». Клиент так и не увидел, за что именно платит.</p></div>
     </div>
   </section>
 
   <section class="wrap rv">
     <div class="eyebrow">// метод</div>
-    <h2>Позиционирование — это инженерная задача,<br>а не вдохновение</h2>
-    <p class="intro">Я проджект-менеджер в ИТ-разработке. Эта работа научила одному: <b>если смысл неточен — система не сработает.</b> С продажами так же. Когда позиционирование размыто, воронка даёт сбой — клиенты проходят мимо, даже если продукт отличный. Поэтому здесь не придумывают слоганы. Здесь отлаживают смысл — по методологии «Логика смыслов» и чёткому протоколу:</p>
-    <p class="intro" style="margin-top:-16px;font-size:14.5px;color:var(--dim)">Если по-простому: <b style="color:var(--muted)">баг</b> — место, где формулировка не работает; <b style="color:var(--muted)">патч</b> — точная замена, после которой работает.</p>
+    <h2>Позиционирование – это инженерная задача,<br>а не вдохновение</h2>
+    <p class="intro">Я проджект-менеджер в ИТ-разработке. Эта работа научила одному: <b>если смысл неточен – система не сработает.</b> С продажами так же. Когда позиционирование размыто, воронка даёт сбой – клиенты проходят мимо, даже если продукт отличный. Поэтому здесь не придумывают слоганы. Здесь отлаживают смысл – по методологии «Логика смыслов» и чёткому протоколу:</p>
+    <p class="intro" style="margin-top:-16px;font-size:14.5px;color:var(--dim)">Если по-простому: <b style="color:var(--muted)">баг</b> – место, где формулировка не работает; <b style="color:var(--muted)">патч</b> – точная замена, после которой работает.</p>
     <div class="steps">
-      <div class="step"><div class="n mono">01 · АУДИТ</div><h4>Собрать формулировки</h4><p>Сайт, шапка канала, КП, скрипты. Всё прогоняется через 20 багов.</p></div>
-      <div class="step"><div class="n mono">02 · АНАЛИЗ</div><h4>Спросить «И что?»</h4><p>Каждую подозрительную фразу — через вопрос «и что из этого клиенту?», пока не упрёмся в реальную пользу.</p></div>
-      <div class="step"><div class="n mono">03 · ПАТЧ</div><h4>Заменить на конкретику</h4><p>Абстракцию — на цифру, факт или проверяемое действие. Готовая формулировка, а не «идея».</p></div>
-      <div class="step"><div class="n mono">04 · ПРОВЕРКА</div><h4>Тест на подстановку</h4><p>Патч остаётся, только если его нельзя приписать конкуренту. Подходит любому — баг ещё жив.</p></div>
+      <div class="step"><div class="n mono">01 · аудит</div><h4>Собрать формулировки</h4><p>Сайт, шапка канала, КП, скрипты. Всё прогоняется через 20 багов.</p></div>
+      <div class="step"><div class="n mono">02 · анализ</div><h4>Спросить «И что?»</h4><p>Каждую подозрительную фразу – через вопрос «и что из этого клиенту?», пока не упрёмся в реальную пользу.</p></div>
+      <div class="step"><div class="n mono">03 · патч</div><h4>Заменить на конкретику</h4><p>Абстракцию – на цифру, факт или проверяемое действие. Готовая формулировка, а не «идея».</p></div>
+      <div class="step"><div class="n mono">04 · проверка</div><h4>Тест на подстановку</h4><p>Патч остаётся, только если его нельзя приписать конкуренту. Подходит любому – баг ещё жив.</p></div>
     </div>
 
-    <h3 class="subhead">Но настоящий баг почти всегда глубже формулировки</h3>
-    <p class="intro">Протокол вычищает то, что видно в тексте. А почему клиент на самом деле проходит мимо — решается уровнем глубже, где чеклистом не обойтись:</p>
-    <ul class="deep">
-      <li><span class="c">01</span><span><b>Карта из 4 координат</b> — кто, боль, решение, доказательство. Видно, где именно у вас слепая зона.</span></li>
-      <li><span class="c">02</span><span><b>О чём клиент молчит.</b> За «хочу сайт» прячется «боюсь, что сделают как конвейер». Ответ на страх, который клиент не произносит вслух.</span></li>
-      <li><span class="c">03</span><span><b>На каком этапе пути</b> клиент вообще вас слышит — язык боли, выгоды или доверия. Одно УТП на все этапы не работает.</span></li>
-      <li><span class="c">04</span><span><b>Момент Х.</b> Когда ваше предложение становится для клиента необходимостью, а не шумом.</span></li>
-    </ul>
-    <p class="intro" style="margin-bottom:0">Протокол вы можете прогнать и сами — он для этого и сделан. А эти слои — работа пересборки позиции.</p>
+    <p class="intro" style="margin:34px 0 0">Протокол можно прогнать и самостоятельно – он для этого и сделан. Когда баг глубже формулировки, в самой позиции, нужна <a href="#plan-turnkey" style="color:var(--teal)">пересборка позиции</a>.</p>
   </section>
 
   <section class="wrap rv alt" id="protokol">
@@ -367,18 +400,18 @@
       <div>
         <div class="eyebrow">// бесплатно</div>
         <h2>Протокол дебаггинга <span class="gift">в подарок</span></h2>
-        <p class="intro">Рабочий протокол, а не теория. Прогоните по нему свои тексты честно — найденный баг это не повод расстраиваться, а точка роста.</p>
+        <p class="intro">Рабочий протокол, а не теория. Прогоните по нему свои тексты честно – найденный баг это не повод расстраиваться, а точка роста.</p>
         <ul class="bonus-list">
-          <li><span class="c">20</span><span><b>багов УТП</b> по блокам — у каждого симптом, цена и патч с примером «до → после».</span></li>
-          <li><span class="c">«?»</span><span>Метод <b>«И что?»</b> — как за минуту докопаться, есть ли за фразой смысл.</span></li>
+          <li><span class="c">20</span><span><b>багов УТП</b> по блокам – у каждого симптом, цена и патч с примером «до → после».</span></li>
+          <li><span class="c">«?»</span><span>Метод <b>«И что?»</b> – как за минуту докопаться, есть ли за фразой смысл.</span></li>
           <li><span class="c">≡</span><span>Шпаргалка <b>фраз-пустышек</b> с готовыми заменами на конкретику.</span></li>
-          <li><span class="c">→</span><span>Разбор <b>«до → после»</b> и шкала: сколько багов — насколько всё серьёзно.</span></li>
+          <li><span class="c">→</span><span>Разбор <b>«до → после»</b> и шкала: сколько багов – насколько всё серьёзно.</span></li>
         </ul>
       </div>
 
       <div class="formcard">
         <h3>Заберите протокол в подарок</h3>
-        <p class="sm">Протокол закреплён в канале «Занимаю позицию». Там же выходят новые разборы — по одному концепту за раз.</p>
+        <p class="sm">Протокол закреплён в канале «Занимаю позицию». Там же выходят новые разборы – по одному концепту за раз.</p>
         <a class="btn" href="https://t.me/utp_debug" target="_blank" rel="noopener" style="width:100%;justify-content:center;padding:13px">Открыть канал и забрать протокол</a>
         <p class="sm" style="margin:14px 0 0;text-align:center">Нет Telegram? <a href="protokol.pdf" download="protokol-debagginga.pdf" style="color:var(--teal)">Скачать PDF напрямую</a></p>
       </div>
@@ -387,19 +420,35 @@
 
   <section class="wrap rv about">
     <div class="eyebrow">// кто за этим</div>
-    <img class="avatar" src="ekaterina.jpg" alt="Екатерина" onerror="this.remove()">
     <h2>Кто я?</h2>
     <div class="cred">магистр инноватики · проджект-менеджер в ИТ-разработке · автор методологии «Логика смыслов»</div>
     <p>Екатерина. Магистр инноватики и проджект-менеджер в ИТ-разработке. Вместе с подрядчиками готовлю описания проектов для решения руководства и веду их до приёмки. Поэтому вижу обе точки: где решают, стоит ли проект денег, и где выясняется, дошло ли обещанное до результата.</p>
-    <p>Несколько лет назад я готовила для компании стратегию отстройки от конкурентов и дала четыре варианта. Заказчику понравилось — а я потом поняла, что можно было сильнее. Я лечила симптомы и не докопалась до главного: почему клиент вообще должен выбрать именно этот продукт. Это был переломный момент.</p>
-    <p>С тех пор любую работу начинаю не с красивых слов, а с холодной диагностики — привычка из разработки: если смысл неточен, система не работает. В канале «Занимаю позицию» так же по-инженерному разбираю УТП и позиционирование: ищу, где смысл сбоит, и чиню. <b>Когда позиция сильная, кричать не нужно — достаточно шёпота.</b></p>
+    <p>Несколько лет назад я готовила для компании стратегию отстройки от конкурентов и дала четыре варианта. Заказчику понравилось – а я потом поняла, что можно было сильнее. Я лечила симптомы и не докопалась до главного: почему клиент вообще должен выбрать именно этот продукт. Это был переломный момент.</p>
+    <p>С тех пор любую работу начинаю не с красивых слов, а с холодной диагностики – привычка из разработки: если смысл неточен, система не работает. В канале «Занимаю позицию» так же по-инженерному разбираю УТП и позиционирование: ищу, где смысл сбоит, и чиню. <b>Когда позиция сильная, кричать не нужно – достаточно шёпота.</b> ❣️</p>
     <a class="btn ghost" href="https://t.me/utp_debug" target="_blank" rel="noopener" style="margin-top:22px">Подписаться на канал →</a>
   </section>
 
   <section class="wrap rv alt" id="audit">
     <div class="eyebrow">// платно</div>
     <h2>Поработать со мной</h2>
-    <p class="intro">Протокол вы прогоняете сами — это поверхность. Дальше три формата, от короткого взгляда до пересборки. Не подойдёт, если нужен трафик, а не смысл, или готовый слоган без вашего участия.</p>
+    <p class="intro">Протокол вы прогоняете сами – это поверхность. Дальше три формата, от короткого взгляда до пересборки. Не подойдёт, если нужен трафик, а не смысл, или готовый слоган без вашего участия.</p>
+
+    <div class="proof">
+      <div class="proof-head mono"><span>отчёт · аудит формулировок</span><span>пример страницы</span></div>
+      <div class="proof-body">
+        <div class="pq"><span class="lbl mono">// ваша формулировка</span>«Полный цикл разработки – от идеи до релиза. Работаем на результат».</div>
+        <div class="pbug"><span class="sev crit">CRITICAL</span><div><b>BUG-04 · обещание неизмеримо.</b> «Результат» не назван: ни срока, ни цифры, ни того, что клиент сможет проверить.</div></div>
+        <div class="pbug"><span class="sev err">ERROR</span><div><b>BUG-07 · тест на подстановку провален.</b> Эту фразу может написать любая студия – поставьте вместо себя конкурента, ничего не изменится. Клиенту не за что выбрать именно вас.</div></div>
+        <div class="pscore">
+          <div><span>Кто</span><i style="--v:30%"></i><b>3/10</b></div>
+          <div><span>Боль</span><i style="--v:20%"></i><b>2/10</b></div>
+          <div><span>Решение</span><i style="--v:60%"></i><b>6/10</b></div>
+          <div><span>Доказательство</span><i style="--v:10%"></i><b>1/10</b></div>
+        </div>
+        <div class="ppatch"><span class="lbl mono">// патч</span>«Запускаем MVP для B2B-стартапов за 8 недель: прототип через 10 дней, дальше – релиз каждые две недели. Срок фиксируем в договоре».</div>
+      </div>
+    </div>
+    <p class="proof-note mono">// вымышленная компания · так выглядит одна из страниц отчёта</p>
 
     <div class="plans" id="plans">
       <div class="plan wide" id="plan-express">
@@ -408,9 +457,9 @@
         <div class="price">1 490 ₽</div>
         <ul>
           <li>3 главных бага первого экрана: то, что клиент видит за первые секунды</li>
-          <li>3 патча «было → стало» — готовые формулировки на замену</li>
+          <li>3 патча «было → стало» – готовые формулировки на замену</li>
           <li>Одна страница: что править и в каком порядке</li>
-          <li><b style="color:var(--ink)">Не найду ни одного бага — верну деньги</b></li>
+          <li><b style="color:var(--ink)">Не найду ни одного бага – верну деньги</b></li>
           <li>Стоимость засчитывается в аудит, если закажете его в течение 14 дней</li>
         </ul>
         <a class="btn ghost" href="audit.html?v=express" style="align-self:flex-start">Заказать экспресс-взгляд</a>
@@ -423,7 +472,7 @@
           <li>Письменный отчёт на 10–15 страниц</li>
           <li>Резюме: главный баг и во что он вам обходится</li>
           <li>Разбор по протоколу: ваша цитата → баг → почему не работает</li>
-          <li>Оценка по 4 координатам — видно, где провисает</li>
+          <li>Оценка по 4 координатам – видно, где провисает</li>
           <li>Карта зазоров: где сайт, КП и менеджер говорят разное</li>
           <li>До 10 патчей «было → стало» и план на месяц: что править первым</li>
           <li>1 раунд письменных вопросов</li>
@@ -432,12 +481,12 @@
           <div class="opt" id="opt-discount">
             <span class="badge mono">осталось <span id="spots">5</span> из 5</span>
             <div class="opt-head"><span class="opt-price"><span class="was">9 900</span> 6 900 ₽</span><span class="opt-tag">со скидкой</span></div>
-            <p class="opt-note">Взамен — короткий отзыв и право показать ваш кейс.</p>
+            <p class="opt-note">Взамен – развёрнутый отзыв и право показать ваш кейс без названия компании.</p>
             <a class="btn" href="audit.html?v=discount">Записаться со скидкой</a>
           </div>
           <div class="opt">
             <div class="opt-head"><span class="opt-price">9 900 ₽</span><span class="opt-tag muted">обычный вариант</span></div>
-            <p class="opt-note">Стандартная цена. Отзыв — если сами захотите.</p>
+            <p class="opt-note">Стандартная цена. Отзыв – если сами захотите.</p>
             <a class="btn ghost" href="audit.html?v=standard">Записаться</a>
           </div>
         </div>
@@ -447,12 +496,12 @@
         <div class="mono" style="font-size:12px;color:var(--dim);margin-bottom:10px">// следующая ступень после аудита</div>
         <h3 style="margin-bottom:4px">Пересборка позиции</h3>
         <div class="mono" style="font-size:13px;color:var(--teal);margin-bottom:14px">стратегия позиционирования с нуля</div>
-        <p class="plan-note">Когда аудит показывает, что формулировками не обойтись: баг не в словах, а в самой позиции. Позиция разбирается целиком и собирается заново. Стоимость — после бесплатного брифа.</p>
+        <p class="plan-note">Когда аудит показывает, что формулировками не обойтись: баг не в словах, а в самой позиции. Позиция разбирается целиком и собирается заново. Стоимость – после бесплатного брифа.</p>
         <ul>
           <li>Кто ваш клиент и о чём он молчит: скрытый запрос и страхи</li>
           <li>Карта 4 координат: кто / боль / решение / доказательство</li>
           <li>Где теряете клиента на пути и в какой момент (Х) вы ему нужны</li>
-          <li>Новая позиция и УТП — на основе полного анализа</li>
+          <li>Новая позиция и УТП – на основе полного анализа</li>
           <li>Раскатка по точкам контакта: сайт, КП, канал</li>
         </ul>
         <a class="btn ghost" href="strateg.html" style="align-self:flex-start">Обсудить задачу</a>
@@ -463,11 +512,11 @@
   <section class="wrap rv">
     <div class="eyebrow">// разборы</div>
     <h2>Серии и методы</h2>
-    <p class="intro">Самое интересное — в сериях на канале: пошаговые разборы под разным углом. Загляните:</p>
+    <p class="intro">Самое интересное – в сериях на канале: пошаговые разборы под разным углом. Загляните:</p>
     <div class="posts">
-      <a class="post" href="blog.html#put-klienta"><div class="tag mono"><span>#серия</span><span class="arr">→</span></div><h4>Путь клиента</h4><p>Почему вы кричите с крыши тому, кто идёт в метро — и как говорить в нужный момент.</p></a>
+      <a class="post" href="blog.html#put-klienta"><div class="tag mono"><span>#серия</span><span class="arr">→</span></div><h4>Путь клиента</h4><p>Почему вы кричите с крыши тому, кто идёт в метро – и как говорить в нужный момент.</p></a>
       <a class="post" href="blog.html#dialogi"><div class="tag mono"><span>#серия</span><span class="arr">→</span></div><h4>Внутренние диалоги</h4><p>О чём клиент молчит. Метод «раскадровка страха»: снимаем звук с его внутреннего кино.</p></a>
-      <a class="post" href="blog.html#moment-x"><div class="tag mono"><span>#серия</span><span class="arr">→</span></div><h4>Момент Х</h4><p>Когда компания глуха к любому предложению — и в какой момент готова сказать «да».</p></a>
+      <a class="post" href="blog.html#moment-x"><div class="tag mono"><span>#серия</span><span class="arr">→</span></div><h4>Момент Х</h4><p>Когда компания глуха к любому предложению – и в какой момент готова сказать «да».</p></a>
       <a class="post" href="blog.html#karta"><div class="tag mono"><span>#основа</span><span class="arr">→</span></div><h4>Карта позиционирования</h4><p>4 координаты, на которых стоит ваше место на рынке. И где у вас слепая зона.</p></a>
     </div>
   </section>
@@ -483,6 +532,7 @@
     <div class="links">
       <a href="#protokol">Забрать протокол</a>
       <a href="#audit">Экспресс-взгляд и аудит</a>
+      <a href="lab.html">Лаборатория</a>
       <a href="https://t.me/utp_debug" target="_blank" rel="noopener">Канал @utp_debug</a>
       <a href="mailto:utp-debug@yandex.ru">utp-debug@yandex.ru</a>
       <a href="privacy.html">Политика конфиденциальности</a>
@@ -494,7 +544,7 @@
 
 <script>
   // ====== МЕСТА В ПЕРВОМ НАБОРЕ ======
-  // Меняйте число вручную по мере записи. 0 — скидочный вариант скрывается сам.
+  // Меняйте число вручную по мере записи. 0 – скидочный вариант скрывается сам.
   const SPOTS_LEFT = 5;
 
   (function(){

@@ -6,11 +6,11 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Блог · разборы — Занимаю позицию</title>
+<title>Блог · разборы – Занимаю позицию</title>
 <link rel="canonical" href="https://utp-debug.github.io/blog.html">
 <meta name="description" content="Разборы по позиционированию и УТП: путь клиента, внутренние диалоги, момент Х, карта позиционирования, формула УТП.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Разборы и серии — Занимаю позицию">
+<meta property="og:title" content="Разборы и серии – Занимаю позицию">
 <meta property="og:description" content="Разборы по позиционированию и УТП: путь клиента, внутренние диалоги, момент Х, карта позиционирования, формула УТП.">
 <meta property="og:image" content="https://utp-debug.github.io/og.png">
 <meta property="og:url" content="https://utp-debug.github.io/blog.html">
@@ -20,17 +20,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0E1820;--bg2:#0A1117;--panel:#16242F;--panel2:#1B2C39;
-    --line:#2A3F4E;--ink:#EEF4F8;--muted:#B4C5D0;--dim:#7E94A1;
-    --teal:#2DD4BF;--teal-br:#74ECDB;--teal-dim:#1FA899;
+    --bg:#162C44;--bg2:#12253A;--panel:#1D3653;--panel2:#22405F;
+    --line:#2E4D6E;--ink:#EEF4F8;--muted:#C3D1DF;--dim:#8DA2B8;
+    --teal:#2EC4B6;--teal-br:#6FE3D6;--teal-dim:#239C92;
     --crit:#F0606B;--err:#E6AE55;--warn:#8FB6D6;--r:14px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
     background:
-      radial-gradient(1200px 700px at 80% -10%, rgba(45,212,191,.10), transparent 55%),
-      radial-gradient(900px 600px at -10% 18%, rgba(45,212,191,.05), transparent 50%),
+      radial-gradient(1200px 700px at 80% -10%, rgba(46,196,182,.10), transparent 55%),
+      radial-gradient(900px 600px at -10% 18%, rgba(46,196,182,.05), transparent 50%),
       var(--bg);
     color:var(--ink);font-family:'Manrope',sans-serif;line-height:1.62;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
@@ -45,11 +45,11 @@
   .intro b{color:var(--ink);font-weight:600}
   .subhead{font-size:clamp(18px,2.7vw,23px);font-weight:800;letter-spacing:-.02em;margin:40px 0 6px;color:var(--ink)}
   section.wrap{padding-top:114px;padding-bottom:114px}
-  section.alt{background:linear-gradient(180deg,rgba(20,33,43,.7),rgba(20,33,43,.32));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  section.alt{background:linear-gradient(180deg,rgba(29,54,83,.7),rgba(29,54,83,.32));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   section.alt + section.wrap{padding-top:150px}
   section[id]{scroll-margin-top:74px}
 
-  header{position:sticky;top:0;z-index:50;background:rgba(14,24,32,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:50;background:rgba(22,44,68,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;max-width:880px;margin:0 auto}
   .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:16px;text-decoration:none}
   .logo svg{width:24px;height:25px;flex-shrink:0}
@@ -57,9 +57,9 @@
   .navlink{font-size:14px;color:var(--muted);text-decoration:none;font-weight:600}
   .navlink:hover{color:var(--teal)}
   .btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#06231F;font-weight:700;font-size:14px;padding:12px 19px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
-  .btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(45,212,191,.28)}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(46,196,182,.28)}
   .btn.ghost{background:transparent;color:var(--teal);border:1px solid var(--teal-dim);box-shadow:none}
-  .btn.ghost:hover{background:rgba(45,212,191,.08);box-shadow:none}
+  .btn.ghost:hover{background:rgba(46,196,182,.08);box-shadow:none}
   .nav .btn{padding:9px 15px;font-size:13px}
   @media(max-width:560px){.nav .btn{display:none}}
 
@@ -87,7 +87,7 @@
   .cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:16px}
   .demo-nav{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
   .demo-nav button{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--teal);font-size:16px;cursor:pointer;transition:border-color .15s,background .15s;line-height:1}
-  .demo-nav button:hover{border-color:var(--teal-dim);background:rgba(45,212,191,.08)}
+  .demo-nav button:hover{border-color:var(--teal-dim);background:rgba(46,196,182,.08)}
   .dots{display:flex;gap:8px}
   .dot-i{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .2s;border:none;padding:0}
   .dot-i.on{background:var(--teal)}
@@ -155,7 +155,7 @@
   @media(max-width:680px){.plans{grid-template-columns:1fr}}
   .plans.single{grid-template-columns:1fr;max-width:540px}
   .plan{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;position:relative}
-  .plan.feat{border-color:var(--teal-dim);box-shadow:0 0 0 1px rgba(45,212,191,.4),0 22px 55px rgba(45,212,191,.12)}
+  .plan.feat{border-color:var(--teal-dim);box-shadow:0 0 0 1px rgba(46,196,182,.4),0 22px 55px rgba(46,196,182,.12)}
   .badge{position:absolute;top:-13px;left:24px;background:var(--teal);color:#06231F;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:5px 12px;border-radius:30px}
   .plan h3{font-size:18px;font-weight:800;margin-bottom:10px}
   .price{font-size:clamp(28px,5vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1;white-space:nowrap}
@@ -168,13 +168,13 @@
   .plan ul li::before{content:"✓";color:var(--teal);font-weight:700;flex-shrink:0}
   .plan .btn{justify-content:center}
   .plan.full .btn{background:transparent;color:var(--teal);border:1px solid var(--teal-dim)}
-  .plan.full .btn:hover{background:rgba(45,212,191,.08);box-shadow:none}
+  .plan.full .btn:hover{background:rgba(46,196,182,.08);box-shadow:none}
   .audit-meta{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px}
   .chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:30px;padding:7px 13px}
   .chip b{color:var(--teal);font-weight:700}
   .opts{display:grid;gap:12px;margin-top:auto}
   .opt{border:1px solid var(--line);border-radius:11px;padding:14px 15px}
-  #opt-discount{position:relative;border-color:var(--teal-dim);background:rgba(45,212,191,.05);margin-top:8px}
+  #opt-discount{position:relative;border-color:var(--teal-dim);background:rgba(46,196,182,.05);margin-top:8px}
   .opt-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:5px}
   .opt-price{font-size:21px;font-weight:800;letter-spacing:-.01em;white-space:nowrap}
   .opt-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--teal);white-space:nowrap}
@@ -226,6 +226,11 @@
   .blog-item .more{color:var(--teal);text-decoration:none;font-weight:600;font-size:14px;font-family:'JetBrains Mono',monospace}
   .blog-item .more:hover{text-decoration:underline}
 
+
+  /* --- бренд: синий логотипа и протокола --- */
+  header{background:#162C44 !important;backdrop-filter:none}
+  .logo img{height:34px;width:auto;display:block}
+  @media(max-width:560px){.logo img{height:28px}}
 </style>
 <script src="site.js"></script>
 </head>
@@ -233,19 +238,19 @@
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <g id="gem">
-  <polygon points="100,176 150,123 185,74 168,39 138,28 116,46 100,61 84,46 62,28 32,39 15,74 50,123" fill="#2DD4BF" fill-opacity="0.13" stroke="none"/>
+  <polygon points="100,176 150,123 185,74 168,39 138,28 116,46 100,61 84,46 62,28 32,39 15,74 50,123" fill="#2EC4B6" fill-opacity="0.13" stroke="none"/>
   <g stroke="#45E4D2" stroke-width="5.6" fill="none" stroke-linejoin="round" stroke-linecap="round">
     <line x1="100" y1="61" x2="66" y2="78"/><line x1="100" y1="61" x2="134" y2="78"/>
     <line x1="66" y1="78" x2="134" y2="78"/><line x1="66" y1="78" x2="32" y2="39"/>
     <line x1="134" y1="78" x2="168" y2="39"/><line x1="66" y1="78" x2="100" y2="176"/>
     <line x1="134" y1="78" x2="100" y2="176"/>
   </g>
-  <polygon points="100,176 150,123 185,74 168,39 138,28 116,46 100,61 84,46 62,28 32,39 15,74 50,123" fill="none" stroke="#74ECDB" stroke-width="7.6" stroke-linejoin="round" stroke-linecap="round"/>
+  <polygon points="100,176 150,123 185,74 168,39 138,28 116,46 100,61 84,46 62,28 32,39 15,74 50,123" fill="none" stroke="#6FE3D6" stroke-width="7.6" stroke-linejoin="round" stroke-linecap="round"/>
 </g></defs></svg>
 
 <header>
   <nav class="nav">
-    <a class="logo" href="index.html"><svg viewBox="0 0 200 205"><use href="#gem"/></svg> Занимаю позицию</a>
+    <a class="logo" href="index.html" aria-label="Занимаю позицию – на главную"><img src="logo.png" alt="Занимаю позицию" width="113" height="34"></a>
     <a class="navlink" href="index.html">← На главную</a>
   </nav>
 </header>
@@ -254,25 +259,25 @@
   <section class="wrap page">
     <div class="eyebrow">// блог</div>
     <h1>Разборы и серии</h1>
-    <p class="lede">Собираю здесь разборы по позиционированию и УТП. Самое свежее и полные версии — <a href="https://t.me/utp_debug" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none">в канале</a>.</p>
+    <p class="lede">Собираю здесь разборы по позиционированию и УТП. Самое свежее и полные версии – <a href="https://t.me/utp_debug" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none">в канале</a>.</p>
 
     <div class="blog-list">
       <article class="blog-item" id="put-klienta">
         <div class="tag mono">#серия</div>
         <h2>Путь клиента: говорить в нужный момент</h2>
-        <p>Клиент не «решает купить» одним кликом — он проходит путь: осознание → поиск → выбор. На каждом этапе у него в голове разные вопросы и разный язык. Главная ошибка — выйти с «купите у меня» к тому, кто ещё не понял, что у него вообще есть проблема. Это всё равно что кричать с крыши человеку, который спешит в метро.</p>
-        <p>На этапе <b>осознания</b> работает язык боли: назвать проблему словами клиента, попасть в тихий страх, который он сам ещё не сформулировал. На этапе <b>поиска</b> — язык выгоды: соединить вашу экспертизу с тем будущим, которого он хочет. На этапе <b>выбора</b> — язык доверия: кейсы, гарантии, ответы на последние сомнения «а вдруг не получится».</p>
-        <p>Поэтому сильнее всего не один пост и не один экран, а <b>последовательность</b>, которая ведёт человека через эти этапы — отражает эволюцию его мыслей. Вы перестаёте «продавать решение» и начинаете сопровождать процесс принятия решения. И тогда покупка становится для клиента просто логичным финалом.</p>
-        <p>Практика: посмотрите на свой главный текст и честно ответьте — на каком этапе пути он говорит? Часто оказывается, что вы отвечаете на «выбор», а человек ещё на «осознании».</p>
+        <p>Клиент не «решает купить» одним кликом – он проходит путь: осознание → поиск → выбор. На каждом этапе у него в голове разные вопросы и разный язык. Главная ошибка – выйти с «купите у меня» к тому, кто ещё не понял, что у него вообще есть проблема. Это всё равно что кричать с крыши человеку, который спешит в метро.</p>
+        <p>На этапе <b>осознания</b> работает язык боли: назвать проблему словами клиента, попасть в тихий страх, который он сам ещё не сформулировал. На этапе <b>поиска</b> – язык выгоды: соединить вашу экспертизу с тем будущим, которого он хочет. На этапе <b>выбора</b> – язык доверия: кейсы, гарантии, ответы на последние сомнения «а вдруг не получится».</p>
+        <p>Поэтому сильнее всего не один пост и не один экран, а <b>последовательность</b>, которая ведёт человека через эти этапы – отражает эволюцию его мыслей. Вы перестаёте «продавать решение» и начинаете сопровождать процесс принятия решения. И тогда покупка становится для клиента просто логичным финалом.</p>
+        <p>Практика: посмотрите на свой главный текст и честно ответьте – на каком этапе пути он говорит? Часто оказывается, что вы отвечаете на «выбор», а человек ещё на «осознании».</p>
         <a class="more" href="https://t.me/utp_debug" target="_blank" rel="noopener">Обсудить в канале →</a>
       </article>
 
       <article class="blog-item" id="dialogi">
         <div class="tag mono">#серия</div>
         <h2>Внутренние диалоги: о чём клиент молчит</h2>
-        <p>Спросите клиента «что для вас важно?» — и он назовёт приличные, социально одобряемые критерии: цена, качество, опыт. Но решает он совсем на другом языке — на языке страха, стыда и невысказанных ожиданий. За официальным запросом «хочу поставить виниры» прячется внутреннее «стесняюсь улыбаться на совещаниях, и боюсь, что будет больно и дорого».</p>
-        <p>Чтобы это вскрыть, я использую метод <b>«раскадровка страха»</b> — восстанавливаю четыре кадра внутреннего кино клиента: <b>триггер</b> (что случилось и какая мысль мелькнула), <b>поиск</b> (что он гуглит и чего пугается), <b>сомнение</b> (что отталкивает в предложении), <b>бегство</b> (почему в итоге уходит, ничего не купив).</p>
-        <p>И отвечаю на страх не прямым опровержением («не больно, не дорого») — это не работает, — а <b>демонстрацией</b>: показываю, что в моём мире этот страх уже учтён. Не «у нас не конвейер», а описание процесса, из которого видно, что конвейером тут и не пахнет.</p>
+        <p>Спросите клиента «что для вас важно?» – и он назовёт приличные, социально одобряемые критерии: цена, качество, опыт. Но решает он совсем на другом языке – на языке страха, стыда и невысказанных ожиданий. За официальным запросом «хочу поставить виниры» прячется внутреннее «стесняюсь улыбаться на совещаниях, и боюсь, что будет больно и дорого».</p>
+        <p>Чтобы это вскрыть, я использую метод <b>«раскадровка страха»</b> – восстанавливаю четыре кадра внутреннего кино клиента: <b>триггер</b> (что случилось и какая мысль мелькнула), <b>поиск</b> (что он гуглит и чего пугается), <b>сомнение</b> (что отталкивает в предложении), <b>бегство</b> (почему в итоге уходит, ничего не купив).</p>
+        <p>И отвечаю на страх не прямым опровержением («не больно, не дорого») – это не работает, – а <b>демонстрацией</b>: показываю, что в моём мире этот страх уже учтён. Не «у нас не конвейер», а описание процесса, из которого видно, что конвейером тут и не пахнет.</p>
         <p>Практика: возьмите одного реального клиента и распишите его четыре кадра. Вы удивитесь, насколько его настоящий запрос отличается от того, что он говорит вслух.</p>
         <a class="more" href="https://t.me/utp_debug" target="_blank" rel="noopener">Обсудить в канале →</a>
       </article>
@@ -280,40 +285,40 @@
       <article class="blog-item" id="moment-x">
         <div class="tag mono">#серия</div>
         <h2>Момент Х: когда вы становитесь нужны</h2>
-        <p>Даже идеальное предложение летит в пустоту, если у человека или компании всё стабильно — им «и так нормально». Готовность купить включается в <b>Момент Х</b>, когда привычный уклад ломается и появляется новая задача.</p>
+        <p>Даже идеальное предложение летит в пустоту, если у человека или компании всё стабильно – им «и так нормально». Готовность купить включается в <b>Момент Х</b>, когда привычный уклад ломается и появляется новая задача.</p>
         <p>Типичные триггеры: сменилось ключевое руководство (новый человек хочет быстрый результат); выход на новый рынок или запуск продукта; привлекли инвестиции (есть деньги и жёсткие обязательства по росту); кризис или ход конкурента, который угрожает доле.</p>
-        <p>Сильное позиционирование — не одна фраза на все случаи жизни, а гибкий фреймворк, который берёт ядро вашей экспертизы и проецирует его на <b>текущее изменение</b> у клиента. Пример: «помогаем выстроить нарратив бренда к следующему раунду инвестиций» — то же ядро, но прицельно в момент привлечения денег.</p>
-        <p>Практика: подумайте, в какие моменты ваши лучшие клиенты обычно к вам приходили. Это и есть ваши Моменты Х — стройте контент и офферы вокруг них.</p>
+        <p>Сильное позиционирование – не одна фраза на все случаи жизни, а гибкий фреймворк, который берёт ядро вашей экспертизы и проецирует его на <b>текущее изменение</b> у клиента. Пример: «помогаем выстроить нарратив бренда к следующему раунду инвестиций» – то же ядро, но прицельно в момент привлечения денег.</p>
+        <p>Практика: подумайте, в какие моменты ваши лучшие клиенты обычно к вам приходили. Это и есть ваши Моменты Х – стройте контент и офферы вокруг них.</p>
         <a class="more" href="https://t.me/utp_debug" target="_blank" rel="noopener">Обсудить в канале →</a>
       </article>
 
       <article class="blog-item" id="karta">
         <div class="tag mono">#основа</div>
         <h2>Карта позиционирования: 4 координаты</h2>
-        <p>Позиционирование — это не слоган, а ваше место на карте, где вас ждут идеальные клиенты. Это место задают четыре координаты, и если хоть одна размыта — клиент проходит мимо.</p>
+        <p>Позиционирование – это не слоган, а ваше место на карте, где вас ждут идеальные клиенты. Это место задают четыре координаты, и если хоть одна размыта – клиент проходит мимо.</p>
         <p><b>Аудитория</b> (кто): «для бизнеса» → «владельцы кофеен с оборотом до 2 млн в месяц». <b>Боль</b> (зачем): «нет клиентов» → «бюджет на рекламу течёт впустую, нет воронки». <b>Решение</b> (что): «комплексный маркетинг» → «кампании, где возврат в 3 раза выше затрат». <b>Доказательство</b> (почему вы): «10 лет опыта» → «3 кейса с такими же кофейнями, +30% к чеку».</p>
-        <p>Когда все четыре координаты сходятся в одну линию, человек понимает вас за секунды и узнаёт в вас «своего». Когда расходятся — возникает то самое ощущение «вроде нормально, но непонятно, чем вы лучше».</p>
-        <p>Практика: разделите лист на четыре части и честно заполните каждую координату. Там, где почувствуете размытость, — ваша слепая зона. С неё и начинайте.</p>
+        <p>Когда все четыре координаты сходятся в одну линию, человек понимает вас за секунды и узнаёт в вас «своего». Когда расходятся – возникает то самое ощущение «вроде нормально, но непонятно, чем вы лучше».</p>
+        <p>Практика: разделите лист на четыре части и честно заполните каждую координату. Там, где почувствуете размытость, – ваша слепая зона. С неё и начинайте.</p>
         <a class="more" href="https://t.me/utp_debug" target="_blank" rel="noopener">Обсудить в канале →</a>
       </article>
 
       <article class="blog-item" id="formula">
         <div class="tag mono">#основа</div>
         <h2>Формула УТП</h2>
-        <p>Сильное УТП меняет абстракцию на конкретику и проходит три проверки. <b>Выгода, а не характеристика</b>: не «как вы это делаете», а «что изменится у клиента». <b>Измеримость</b>: дни, проценты, рубли, шаги — то, что можно сравнить. <b>Доказуемость</b>: кейс, цифра или гарантия с последствиями, иначе клиент читает это как обычную рекламу.</p>
-        <p>Разница на примере. Признак: «используем профессиональное оборудование». Выгода: «изделие не теряет вид после 100 стирок». Первое — про вас, второе — про клиента, и именно за второе платят.</p>
-        <p>И работать УТП должно сразу на трёх уровнях: <b>притягивать</b> идеального клиента, <b>отталкивать</b> неподходящего и быть «своим» для команды. Если ваш отдел продаж стесняется произносить ваше УТП вслух — оно мертво.</p>
-        <p>Черновик-конструктор, чтобы собрать своё: <b>[кто и в какой ситуации]</b> получает <b>[измеримый результат]</b> за <b>[срок]</b>, потому что <b>[ваше отличие / дорогой сигнал]</b> — в отличие от того, как делают все.</p>
+        <p>Сильное УТП меняет абстракцию на конкретику и проходит три проверки. <b>Выгода, а не характеристика</b>: не «как вы это делаете», а «что изменится у клиента». <b>Измеримость</b>: дни, проценты, рубли, шаги – то, что можно сравнить. <b>Доказуемость</b>: кейс, цифра или гарантия с последствиями, иначе клиент читает это как обычную рекламу.</p>
+        <p>Разница на примере. Признак: «используем профессиональное оборудование». Выгода: «изделие не теряет вид после 100 стирок». Первое – про вас, второе – про клиента, и именно за второе платят.</p>
+        <p>И работать УТП должно сразу на трёх уровнях: <b>притягивать</b> идеального клиента, <b>отталкивать</b> неподходящего и быть «своим» для команды. Если ваш отдел продаж стесняется произносить ваше УТП вслух – оно мертво.</p>
+        <p>Черновик-конструктор, чтобы собрать своё: <b>[кто и в какой ситуации]</b> получает <b>[измеримый результат]</b> за <b>[срок]</b>, потому что <b>[ваше отличие / дорогой сигнал]</b> – в отличие от того, как делают все.</p>
         <a class="more" href="https://t.me/utp_debug" target="_blank" rel="noopener">Обсудить в канале →</a>
       </article>
 
       <article class="blog-item" id="i-chto">
         <div class="tag mono">#бериделай</div>
         <h2>Метод «И что?»</h2>
-        <p>Самый быстрый способ проверить любую фразу на пустоту — спрашивать «и что из этого клиенту?», пока не упрётесь в реальную пользу, которую человек может пощупать.</p>
-        <p>Пример цепочки: «японское оборудование» → и что? → «ровные швы 0,5 мм» → и что? → «изделие не теряет вид после 100 стирок». Вот за «100 стирок» клиент и платит. Всё, что выше по цепочке, — это ваш внутренний процесс, его можно вычеркнуть из оффера.</p>
-        <p>Так же лечатся фразы-пустышки. «Высокое качество» → «7 проверок перед сдачей». «Индивидуальный подход» → «адаптируем под ваши KPI за 48 часов». «Кратчайшие сроки» → «прототип за 3 рабочих дня». Каждый раз — замена абстракции на проверяемый факт.</p>
-        <p>Практика: возьмите своё УТП и прогоните каждое слово через «и что?». Всё, что не дотягивается до пользы клиента, — кандидат на вычёркивание или замену.</p>
+        <p>Самый быстрый способ проверить любую фразу на пустоту – спрашивать «и что из этого клиенту?», пока не упрётесь в реальную пользу, которую человек может пощупать.</p>
+        <p>Пример цепочки: «японское оборудование» → и что? → «ровные швы 0,5 мм» → и что? → «изделие не теряет вид после 100 стирок». Вот за «100 стирок» клиент и платит. Всё, что выше по цепочке, – это ваш внутренний процесс, его можно вычеркнуть из оффера.</p>
+        <p>Так же лечатся фразы-пустышки. «Высокое качество» → «7 проверок перед сдачей». «Индивидуальный подход» → «адаптируем под ваши KPI за 48 часов». «Кратчайшие сроки» → «прототип за 3 рабочих дня». Каждый раз – замена абстракции на проверяемый факт.</p>
+        <p>Практика: возьмите своё УТП и прогоните каждое слово через «и что?». Всё, что не дотягивается до пользы клиента, – кандидат на вычёркивание или замену.</p>
         <a class="more" href="https://t.me/utp_debug" target="_blank" rel="noopener">Обсудить в канале →</a>
       </article>
     </div>
@@ -329,6 +334,7 @@
     <div class="links">
       <a href="index.html#protokol">Забрать протокол</a>
       <a href="index.html#audit">Экспресс-взгляд и аудит</a>
+      <a href="lab.html">Лаборатория</a>
       <a href="blog.html">Блог · разборы</a>
       <a href="https://t.me/utp_debug" target="_blank" rel="noopener">Канал @utp_debug</a>
       <a href="mailto:utp-debug@yandex.ru">utp-debug@yandex.ru</a>

@@ -40,11 +40,11 @@ document.addEventListener('click',function(e){
     var d=document.createElement('div');
     d.setAttribute('role','region'); d.setAttribute('aria-label','Уведомление о cookie');
     d.style.cssText='position:fixed;left:12px;right:12px;bottom:12px;z-index:90;max-width:560px;margin:0 auto;'+
-      'background:#16242F;border:1px solid #2A3F4E;border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:center;'+
-      'font:13px/1.45 Manrope,system-ui,sans-serif;color:#B4C5D0;box-shadow:0 12px 30px rgba(0,0,0,.35)';
+      'background:#1D3653;border:1px solid #2E4D6E;border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:center;'+
+      'font:13px/1.45 Manrope,system-ui,sans-serif;color:#C3D1DF;box-shadow:0 12px 30px rgba(0,0,0,.35)';
     d.innerHTML='<span style="flex:1">Сайт использует cookie и Яндекс Метрику, чтобы понимать, что читают. '+
-      'Подробнее — в <a href="privacy.html" style="color:#2DD4BF">Политике</a>.</span>'+
-      '<button type="button" style="background:#2DD4BF;color:#06231F;border:0;border-radius:8px;padding:8px 12px;font:700 13px Manrope,system-ui,sans-serif;cursor:pointer">Понятно</button>';
+      'Подробнее — в <a href="privacy.html" style="color:#2EC4B6">Политике</a>.</span>'+
+      '<button type="button" style="background:#2EC4B6;color:#06231F;border:0;border-radius:8px;padding:8px 12px;font:700 13px Manrope,system-ui,sans-serif;cursor:pointer">Понятно</button>';
     d.querySelector('button').onclick=function(){ try{localStorage.setItem(k,'1')}catch(e){} d.remove(); };
     document.body.appendChild(d);
   }
